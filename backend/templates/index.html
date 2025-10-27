@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI SQL Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI SQL Generator</h1>
+
+        {% if not user %}
+            <!-- Show login button if user is not logged in -->
+            <a href="{{ url_for('google.login') }}">
+                <button class="login-btn">Login with Google</button>
+            </a>
+        {% else %}
+            <!-- Show welcome message and logout -->
+            <p>Welcome, {{ user.get('given_name', 'User') }} ({{ user.get('email', 'unknown') }})</p>
+            <a href="{{ url_for('logout') }}">
+                <button class="logout-btn">Logout</button>
+            </a>
+
+            <!-- SQL Generator input -->
+            <input type="text" id="query" placeholder="Enter your question in English">
+            <button id="generate">Generate SQL</button>
+            <div id="output"></div>
+        {% endif %}
+    </div>
+
+    <!-- JavaScript -->
+    {% if user %}
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const button = document.getElementById('generate');
+        if (button) {
+            button.addEventListener('click', async () => {
+                const query = document.getElementById('query').value;
+                if (!query) return;
+
+                try {
+                    const response = await fetch('/generate_sql', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams({ query })
+                    });
+
+                    if (!response.ok) throw new Error('Network response was not ok');
+
+                    const data = await response.json();
+                    document.getElementById('output').innerText = data.sql;
+                } catch (err) {
+                    console.error('Error generating SQL:', err);
+                    document.getElementById('output').innerText = "Error generating SQL. Check console.";
+                }
+            });
+        }
+    });
+    </script>
+    {% endif %}
+</body>
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI SQL Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI SQL Generator</h1>
+        <input type="text" id="query" placeholder="Enter your question in English">
+        <button id="generate">Generate SQL</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const button = document.getElementById('generate');
+        button.addEventListener('click', async () => {
+            const query = document.getElementById('query').value;
+            const response = await fetch('/generate_sql', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ query })
+            });
+            const data = await response.json();
+            document.getElementById('output').innerText = data.sql;
+        });
+    </script>
+</body>
+</html> -->

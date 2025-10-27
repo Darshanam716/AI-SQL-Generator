@@ -1,0 +1,108 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body styling */
+body {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main container */
+.container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+}
+
+/* Heading */
+.container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+/* Input box */
+input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #c3cfe2;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 10px rgba(106, 17, 203, 0.2);
+    outline: none;
+}
+
+/* Button */
+button {
+    padding: 15px 30px;
+    background-color: #6a11cb;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #2575fc;
+    box-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
+}
+
+/* SQL output box */
+#output {
+    margin-top: 20px;
+    background-color: #f3f4f6;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    color: #111827;
+    min-height: 60px;
+    word-wrap: break-word;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+body {
+  font-family: Arial;
+  text-align: center;
+  margin-top: 100px;
+}
+.google-btn {
+  display: inline-block;
+  background: #4285F4;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.google-btn:hover {
+  background: #357AE8;
+}
