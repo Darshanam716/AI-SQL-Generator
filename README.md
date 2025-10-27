@@ -67,9 +67,6 @@ sqlenv\Scripts\activate   # On Windows
 # or
 source sqlenv/bin/activate  # On Mac/Linux
 
-3️⃣ Install Dependencies
-pip install -r requirements.txt
-
 
 If you don’t have a requirements.txt, generate one:
 
