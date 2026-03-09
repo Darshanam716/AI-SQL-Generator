@@ -1,4 +1,4 @@
-# 🤖 AI SQL Generator
+# 🤖 AI Powered SQL Generator
 
 AI SQL Generator is a smart web application that automatically converts **natural language queries (English)** into **SQL statements** using a fine-tuned **T5 Transformer model**.  
 It includes **Google Login (OAuth 2.0)** for secure access and uses **MongoDB** to store user queries and generated SQL outputs.
