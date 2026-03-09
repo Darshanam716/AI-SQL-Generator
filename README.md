@@ -86,7 +86,6 @@ GOOGLE_CLIENT_SECRET=your_google_client_secret_here
 
 Go to Google Cloud Console
 .
-
 Create a new OAuth 2.0 Client ID (Web Application).
 
 Add the following:
@@ -116,8 +115,6 @@ show all employees whose salary is more than 30000
 Output:
 
 SELECT * FROM employees WHERE salary > 30000;
-
-
 
 🧰 Tech Stack
 Component	Technology Used
